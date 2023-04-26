@@ -5,6 +5,7 @@ from . import db
 import json
 import jsonify
 
+
 views = Blueprint('views', __name__)
 
 @views.route('/', methods=['GET', 'POST'])

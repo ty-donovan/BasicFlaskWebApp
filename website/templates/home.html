@@ -2,21 +2,22 @@
 
 {% block content %}
 <br />
-<h1 align="center">Notes</h1>
+<h1 align="center" id="title">Notes</h1>
 <ul class="list-group list-group-flush" id="notes">
     {% for note in user.notes %}
-    <li class="list-group-item">{{ note.data }}
+    <li class="list-group-item {{ note.id }}">
+        <span class="note-data">{{ note.data }}</span>
         <button type="button" class="close" onClick="deleteNote({{ note.id }})">
             <span aria-hidden="true">&times;</span>
         </button>
     </li>
     {% endfor %}
 </ul>
-<form method="POST">
+<form method="POST" id="noteForm">
     <textarea name="note" class="form-control" id="note"></textarea>
     <br />
     <div align="center">
-        <button type="submit" class="btn btn-primary">Save Note</button>
+        <button type="submit" class="btn btn-secondary toggle-button">Save Note</button>
     </div>
 </form>
 
